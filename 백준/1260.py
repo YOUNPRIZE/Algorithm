@@ -28,9 +28,9 @@ def bfs(v):
         v = q.popleft()
         print(v, end = " ")
         for i in range(1, n + 1):
-            if visit_list[i] == 0 and graph[v][i] == 1:
+            if visited[i] == 0 and graph[v][i] == 1:
                 q.append(i)
-                visit_list[i] = 1
+                visited[i] = 1
 
 def dfs(v):
     # 방문한 곳은 1 넣기
@@ -40,7 +40,7 @@ def dfs(v):
     
     # 재귀 함수 선언 (V와 인접한 곳을 찾고 방문하지 않았다면 함수 실행)
     for i in range(1, n + 1):
-        if visite[i] == 0 and graph[v][i] == 1:
+        if visited[i] == 0 and graph[v][i] == 1:
             dfs(i)
 
 if __name__ == "__main__":
