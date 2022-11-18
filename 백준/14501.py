@@ -23,3 +23,5 @@ for i in range(n - 1, -1, -1):
         answer[i] = max(p_list[i] + answer[i + t_list[i]], answer[i + 1])
         
 print(answer[0])
+
+# 다시 풀어보기
