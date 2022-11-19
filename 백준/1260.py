@@ -20,44 +20,39 @@
 from collections import deque
 import sys
 
+from collections import deque
+import sys
+read = sys.stdin.readline
+
 def bfs(v):
-    q = deque()
-    q.append(v)       
-    visited[v] = 1   
-    while q:
-        v = q.popleft()
-        print(v, end = " ")
-        for i in range(1, n + 1):
-            if visited[i] == 0 and graph[v][i] == 1:
-                q.append(i)
-                visited[i] = 1
+  q = deque()
+  q.append(v)       
+  visit_list[v] = 1   
+  while q:
+    v = q.popleft()
+    print(v, end = " ")
+    for i in range(1, n + 1):
+      if visit_list[i] == 0 and graph[v][i] == 1:
+        q.append(i)
+        visit_list[i] = 1
 
 def dfs(v):
-    # 방문한 곳은 1 넣기
-    visited[v] = 1 
-    
-    print(v, end = " ")
-    
-    # 재귀 함수 선언 (V와 인접한 곳을 찾고 방문하지 않았다면 함수 실행)
-    for i in range(1, n + 1):
-        if visited[i] == 0 and graph[v][i] == 1:
-            dfs(i)
+  visit_list2[v] = 1        
+  print(v, end = " ")
+  for i in range(1, n + 1):
+    if visit_list2[i] == 0 and graph[v][i] == 1:
+      dfs(i)
 
-if __name__ == "__main__":
-    # 입력 변수 받기
-    n, m, v = map(int, sys.stdin.readline().split())
+n, m, v = map(int, read().split())
 
-    # 인접 영행령 생성
-    graph = [[0] * (n + 1) for _ in range(n + 1)] 
-    
-    # 방문한 곳 체크를 위한 배열 선언
-    visited = [0] * (n + 1)
+graph = [[0] * (n + 1) for _ in range(n + 1)] 
+visit_list = [0] * (n + 1)
+visit_list2 = [0] * (n + 1)
 
-    # 입력 받는 두 값에 대해 영행렬에 1 삽입
-    for _ in range(m):
-        a, b = map(int, sys.stdin.readline().split())
-        graph[a][b] = graph[b][a] = 1
+for _ in range(m):
+  a, b = map(int, read().split())
+  graph[a][b] = graph[b][a] = 1
 
-    dfs(v)
-    print()
-    bfs(v)
+dfs(v)
+print()
+bfs(v)
