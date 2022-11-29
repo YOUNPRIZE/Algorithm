@@ -14,3 +14,4 @@ for i in range(N):
 
 word.sort(key=len, reverse=True)
 
+#풀어야됨
