@@ -2,9 +2,6 @@
 ## 골드 4
 ### 단어 수학
 
-import sys
-input = sys.stdin.readline
-
 N=int(input())
 
 # 입력할 단어 변수 선언
@@ -28,8 +25,8 @@ for word in words:
             dict[c] += pow(10, square_root)
         else: # 없는경우 그대로 넣어준다.
             dict[c] = pow(10, square_root)
-    # 제곱근을 뺴준다.
-    square_root -= 1 
+        # 제곱근을 뺴준다.
+        square_root -= 1 
 
 # 딕셔너리를 큰값부터 쓰기 위해 정렬
 dict = sorted(dict.values(), reverse=True)
