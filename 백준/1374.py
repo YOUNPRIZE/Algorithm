@@ -27,8 +27,8 @@ while len(classes) != 0:
         if i == 0:
             lec = classes.popleft()
             time = lec[2]
-        elif classes[i][2]
+        elif classes[i][2]:
 
-print(classes)
+# print(classes)
 
 # 다시 풀기
